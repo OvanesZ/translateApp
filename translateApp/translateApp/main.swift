@@ -9,9 +9,9 @@ import Foundation
 
 
 
-func translate(_ wordsEnglish: [String], _ wordsRussian: [String]) {
+func translate(_ wordsAnother: [String], _ wordsRussian: [String]) {
     
-    var newWordsEnglishArr = wordsEnglish
+    var newWordsEnglishArr = wordsAnother
     var newWordsRussianArr = wordsRussian
     
     while newWordsEnglishArr.count != 0 {
@@ -20,11 +20,11 @@ func translate(_ wordsEnglish: [String], _ wordsRussian: [String]) {
         print("Как переводится \(newWordsEnglishArr[randomElement])?")
         var userAnswer: String = readLine(strippingNewline: true)!
         if userAnswer == newWordsRussianArr[randomElement] {
-            print("Правильно!")
+            print("Правильно! \n")
             newWordsEnglishArr.remove(at: randomElement)
             newWordsRussianArr.remove(at: randomElement)
         } else {
-            print("Неправильно!")
+            print("Неправильно! \nПравильный ответ \(newWordsRussianArr[randomElement]) \n")
         }
     }
 }
@@ -32,5 +32,16 @@ func translate(_ wordsEnglish: [String], _ wordsRussian: [String]) {
 var wordsEnglishArr: [String] = ["food", "hello", "world"]
 var wordsRussianArr: [String] = ["еда", "привет", "мир"]
 
-translate(wordsEnglishArr, wordsRussianArr)
+var wordsArmenianArr: [String] = ["ныкар", "санр", "намак", "ор", "воски", "анун", "кин", "амусин", "аса", "ари", "ар", "мна", "уни", "им"]
+
+var wordsRussianForArmenianArr: [String] = ["картина", "расческа", "письмо", "день", "золото", "имя", "жена", "муж", "скажи", "иди", "возьми", "останься", "он имеет", "мой"]
+
+//translate(wordsEnglishArr, wordsRussianArr)
+
+translate(wordsArmenianArr, wordsRussianForArmenianArr)
+
+
+
+// добавить счетчик ошибок
+// выделять цветом правильный и неправильный ответы
 
