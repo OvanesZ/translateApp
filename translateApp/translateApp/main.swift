@@ -13,20 +13,24 @@ func translate(_ wordsAnother: [String], _ wordsRussian: [String]) {
     
     var newWordsEnglishArr = wordsAnother
     var newWordsRussianArr = wordsRussian
+    var falseCount: Int = 0
     
     while newWordsEnglishArr.count != 0 {
         
         var randomElement = Int.random(in: 0...newWordsEnglishArr.count-1)
         print("Как переводится \(newWordsEnglishArr[randomElement])?")
         var userAnswer: String = readLine(strippingNewline: true)!
-        if userAnswer == newWordsRussianArr[randomElement] {
+        var newUserAnswer = userAnswer.lowercased()
+        if newUserAnswer == newWordsRussianArr[randomElement] {
             print("Правильно! \n")
             newWordsEnglishArr.remove(at: randomElement)
             newWordsRussianArr.remove(at: randomElement)
         } else {
             print("Неправильно! \nПравильный ответ \(newWordsRussianArr[randomElement]) \n")
+            falseCount += 1
         }
     }
+    return print("Поздравляю, обучение окончено! \n Неправильных ответов: \(falseCount)")
 }
 
 var wordsEnglishArr: [String] = ["food", "hello", "world"]
@@ -36,9 +40,9 @@ var wordsArmenianArr: [String] = ["ныкар", "санр", "намак", "ор"
 
 var wordsRussianForArmenianArr: [String] = ["картина", "расческа", "письмо", "день", "золото", "имя", "жена", "муж", "скажи", "иди", "возьми", "останься", "он имеет", "мой"]
 
-//translate(wordsEnglishArr, wordsRussianArr)
+translate(wordsEnglishArr, wordsRussianArr)
 
-translate(wordsArmenianArr, wordsRussianForArmenianArr)
+//translate(wordsArmenianArr, wordsRussianForArmenianArr)
 
 
 
